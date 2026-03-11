@@ -3,18 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Dashboard</title>
+    <title>My Dashboard</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #121212; color: white; margin: 0; padding: 20px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 20px; }
         .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: auto; }
-        .card { background: #1e1e1e; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-        h2 { border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 0; font-size: 1.2rem; color: #00ACED; }
-        iframe { width: 100%; border: none; border-radius: 8px; background: white; }
+        .card { background: #1e293b; padding: 20px; border-radius: 16px; border: 1px solid #334155; }
+        h2 { font-size: 1.1rem; color: #38bdf8; margin-bottom: 15px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
+        .btn { display: inline-block; background: #0ea5e9; color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; width: 100%; text-align: center; box-sizing: border-box; transition: background 0.2s; }
+        .btn:hover { background: #0284c7; }
+        .wotd-frame { width: 100%; height: 230px; border: none; border-radius: 12px; background: white; }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <!-- 1. WEATHER (HTTPS SECURE) -->
+    <div class="card">
+        <h2>Chicago Weather</h2>
+        <a class="weatherwidget-io" href="https://forecast7.com" data-label_1="CHICAGO" data-theme="dark" >CHICAGO WEATHER</a>
+        <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s);if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io;}}(document,'script','weatherwidget-io-js');
+        </script>
+    </div>
+
+    <div class="container">
     <!-- 1. WEATHER -->
     <div class="card">
         <h2>Local Weather</h2>
@@ -23,27 +35,29 @@
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
         </script>
     </div>
-
-    <!-- 2. METRA TRACKER (UP-N Ravenswood) -->
+        
+    <!-- 2. METRA TRACKER (DIRECT LINK) -->
     <div class="card">
-        <h2>Metra UP-N: Ravenswood to Ogilvie</h2>
-        <iframe src="https://www.metratracker.com" height="400"></iframe>
-        <p style="font-size: 0.8rem; margin-top: 5px;"><a href="https://metra.com/train-lines/stations/ravenswood" target="_blank" style="color: #aaa;">Full Schedule</a></p>
+        <h2>Metra UP-N</h2>
+        <p>Ravenswood → Ogilvie (OTC)</p>
+        <a href="https://www.metratracker.com" target="_blank" class="btn">View Live Tracker</a>
+        <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 10px;">Metra blocks embedding, so this opens the live tracker in a new tab.</p>
     </div>
 
-    <!-- 3. POLISH WORD OF THE DAY -->
+    <!-- 3. POLISH WORD OF THE DAY (SECURE WIDGET) -->
     <div class="card">
-        <h2>Polish Word of the Day</h2>
-        <iframe src="https://www.innovativelanguage.com" height="180" scrolling="no"></iframe>
+        <h2>Polish Word</h2>
+        <iframe src="https://www.innovativelanguage.com" class="wotd-frame"></iframe>
     </div>
 
-    <!-- 4. SPANISH WORD OF THE DAY -->
+    <!-- 4. SPANISH WORD OF THE DAY (SECURE WIDGET) -->
     <div class="card">
-        <h2>Spanish Word of the Day</h2>
-        <iframe src="https://www.innovativelanguage.com" height="180" scrolling="no"></iframe>
+        <h2>Spanish Word</h2>
+        <iframe src="https://www.innovativelanguage.com" class="wotd-frame"></iframe>
     </div>
 </div>
 
 </body>
-
 </html>
+
+
